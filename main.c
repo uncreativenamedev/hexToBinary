@@ -11,7 +11,7 @@ union Data {
 };
 
 int main(int argc, char** argv) {
-	int quit = 0;
+	int quit = 1;
 	union Data data;
 	char output[74]; //eg. 0b10000001'00000000'01010100'00001000'00010100'00010001'00100001'00000001\0
 	output[0] = '0';
@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
 		if (quit == 0)
 			return 0;
 		printf("8 bytes in hex (space separated): ");
-		scanf("%2hhx %2hhx %2hhx %2hhx %2hhx %2hhx %2hhx %2hhx", &data.u8[0], &data.u8[1], &data.u8[2], &data.u8[3], &data.u8[4], &data.u8[5], &data.u8[6], &data.u8[7]);
+		scanf("%2hhx %2hhx %2hhx %2hhx %2hhx %2hhx %2hhx %2hhx", &data.u8[7], &data.u8[6], &data.u8[5], &data.u8[4], &data.u8[3], &data.u8[2], &data.u8[1], &data.u8[0]);
 		size_t currentOutputElement = 1;
 		for (size_t currentDataElement = 0; currentDataElement < 8; ++currentDataElement) {
 			currentOutputElement += 1;
@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
 				currentOutputElement += 1;
 			}
 		}
-		printf("output: %s", output);
+		printf("output: %s\n", output);
 	}
 	return 0;
 }
